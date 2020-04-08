@@ -24,13 +24,27 @@ public class JdbcUpdateDemo {
 			
 			//-------------------------------------
 			
-
 			//2 - Create a statement:
 			statement = connection.createStatement();
 			
 			//-------------------------------------
 			
+			//3 - display employee's initial info:
+			displayEmployee(statement, "John", "Doe");
 			
+			//-------------------------------------
+			
+			//4 - UPDATE the employee's info:
+			statement.executeUpdate(
+					"UPDATE employees"
+					+ " SET email='newEmail@email.com'"
+					+ " WHERE last_name = 'Doe' AND first_name='John'"		
+					);
+			
+			//-------------------------------------
+			
+			//5 - display employee's NEW info:
+			displayEmployee(statement, "John", "Doe");
 			
 			
 		}catch(Exception e) {
@@ -44,6 +58,28 @@ public class JdbcUpdateDemo {
 		
 		
 
+	}
+	
+	static void displayEmployee(Statement statement, String firstName, String lastName) {
+		
+		ResultSet resultSet = null;
+		
+		try {
+		
+			//REMEMBER to include the SINGLE quotes around the search params!! ++++++++++++++++++
+			resultSet = statement.executeQuery("select * from employees where first_name = '" + firstName + "' and last_name = '" + lastName + "'");
+			
+			while(resultSet.next()) {
+				System.out.println(resultSet.getString("last_name") + " | " + resultSet.getString("first_name") + " | " + resultSet.getString("email"));
+			}
+			
+			
+		} catch (SQLException e) {
+			System.out.println("Uh oh!!");
+			e.printStackTrace();
+		}
+		
+		
 	}
 
 }
