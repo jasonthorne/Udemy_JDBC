@@ -1,1 +1,1 @@
-# Udemy_JDBC_MySQL
+# Udemy_JDBC
