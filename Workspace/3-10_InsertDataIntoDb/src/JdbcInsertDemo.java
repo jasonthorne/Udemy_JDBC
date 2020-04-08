@@ -34,7 +34,8 @@ public class JdbcInsertDemo {
 			
 			System.out.println("Inserting a new Employee into database");
 			
-			int rowsEffected = statement.executeUpdate(
+			//int rowsEffected = statement.executeUpdate( //thhis call returns the number of rows effected +++++++++++++
+			statement.executeUpdate(
 					
 					"insert into employees (last_name, first_name, email, department, salary)" 
 					+ "values ('Blogs', 'Joe', 'blogs.joe@email.com', 'HR', 33000.00)"
