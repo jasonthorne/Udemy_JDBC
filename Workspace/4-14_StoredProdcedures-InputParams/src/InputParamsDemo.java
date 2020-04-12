@@ -42,12 +42,24 @@ public class InputParamsDemo {
 			//4 - set the parameters for the statement (at the position required):
 			
 			String dept = "engineering";
-			int increaseAmmount = 1000; 
+			int increaseAmount = 1000; 
 			
 			callableStatement.setString(1, "engineering");
-			callableStatement.setDouble(2, increaseAmmount);
+			callableStatement.setDouble(2, increaseAmount);
 			
-			//
+			//-------------------------
+			//5 - Call stored procedure:
+			
+			System.out.println("Calling stored procedure: increase_salaries_for_department(" + dept + ", " + increaseAmount + ")");
+			
+			callableStatement.execute(); //stored procedure called here +++++++
+			
+			//-------------------------
+			//6 - show NEW salaries AFTER storedProcedure call:
+			
+			displayDeptartmentSalaries(connection, "engineering");
+			
+			
 			
 		}catch(Exception e) {
 			e.printStackTrace();
