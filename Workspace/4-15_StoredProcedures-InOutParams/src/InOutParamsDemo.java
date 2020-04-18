@@ -29,9 +29,10 @@ public class InOutParamsDemo {
 			//-------------------------
 			//3 - set the parameters:
 			
-			String department = "Enginnering";
-			callableStatement.registerOutParameter(1, Types.VARCHAR); //register the out param
-			callableStatement.setString(1, department); //set the out param
+			String department = "Engineering";
+			callableStatement.setString(1, department); //set the INPUT param
+			callableStatement.registerOutParameter(1, Types.VARCHAR); //register the OUT param
+			
 			
 			//-------------------------
 			//4 - call the stored procedure:
