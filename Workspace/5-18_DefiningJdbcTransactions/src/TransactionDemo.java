@@ -10,7 +10,7 @@ public class TransactionDemo {
 	
 	/**
 	 *
-	 * A TRANSACTION is one or more SQL statements executed together:
+	 * A TRANSACTION is ONE or MORE SQL statements executed together:
 	 * - either all of the statements are executed, leading to a COMMIT
 	 * - or NONE of the statements are executed, leading to a ROLLBACK 
 	 * 
@@ -71,7 +71,12 @@ public class TransactionDemo {
 
 	}
 	
-	static void showSalaries(String department, Connection connection) {
+	static void showSalaries(String department, Connection connection) { 
+		
+		/**
+		 * prob best to have prepared statement here use a stored procedure in in db instead 
+		 * (allowing this autocommit obv as its only a selection)
+		 */
 		
 		try {
 			
