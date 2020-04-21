@@ -60,8 +60,34 @@ public class TransactionDemo {
 			
 			statement.executeUpdate("update employees SET salary = '300000' WHERE department = 'Engineering'"); //execute a update query using statement
 			
+			System.out.println("Transaction steps are ready");
+			
+			//--------------------------------------------------
+			//6 - ask user if okay to save:
+			
+			boolean canSave = true;
+			
+			if(canSave) {
+				connection.commit(); //coomity connection
+				System.out.println("Transaction COMMITED");
+			}else {
+				connection.rollback(); //rollback connection
+				System.out.println("Transaction ROLLED BACK");
+			}
 			
 			
+			//--------------------------------------------------
+			//7 - Show salaries AFTER 
+			
+			System.out.println("\nSalaries AFTER:");
+			
+			System.out.println("\nHR:");
+			showSalaries("HR", connection);
+			
+			System.out.println("\nEngineering:");
+			showSalaries("Engineering", connection);
+			
+			//--------------------------------------------------le fin
 			
 		}catch(Exception e) {
 			e.printStackTrace();
