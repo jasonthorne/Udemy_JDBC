@@ -6,6 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * 
+ * REMEMBER TO re-run table setup script in SQL workbench after running this! ++++++++++++++++++++++++ 
+ *
+ */
+
 public class TransactionDemo {
 	
 	/**
@@ -66,6 +72,7 @@ public class TransactionDemo {
 			//6 - ask user if okay to save:
 			
 			boolean canSave = true;
+			//boolean canSave = false;
 			
 			if(canSave) {
 				connection.commit(); //coomity connection
@@ -74,7 +81,6 @@ public class TransactionDemo {
 				connection.rollback(); //rollback connection
 				System.out.println("Transaction ROLLED BACK");
 			}
-			
 			
 			//--------------------------------------------------
 			//7 - Show salaries AFTER 
