@@ -11,7 +11,7 @@ public class Main {
 		Examples.schemaInfo();
 		
 		//3 - reading ruleset meta data:
-		
+		Examples.resultSetMetaData();
 		
 
 	}
