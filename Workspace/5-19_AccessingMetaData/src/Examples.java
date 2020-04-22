@@ -3,16 +3,14 @@ import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-
-/**
- * 
- * Database Metadata gives you info regarding your DB
- *
- */
-
-public class MetaDataBasicInfo {
-
-	public static void main(String[] args) throws SQLException {
+public class Examples {
+	
+	
+	static void MetaDataBasicInfo() throws SQLException{
+		
+		/**
+		 * Database Metadata gives you info regarding your DB
+		 */
 		
 		Connection connection = null;
 		
@@ -50,6 +48,18 @@ public class MetaDataBasicInfo {
 			connection.close();
 		}
 
+		
 	}
+	
+	//-------------------------------------------------------------
+	
+	static void SchemaInfo() throws SQLException{
+		
+		System.out.println("sup!");
+		
+	}
+	
+	
+	
 
 }
