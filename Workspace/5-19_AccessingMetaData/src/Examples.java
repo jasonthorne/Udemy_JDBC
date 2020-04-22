@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class Examples {
 	
 	
-	static void MetaDataBasicInfo() throws SQLException{
+	static void metaDataBasicInfo() throws SQLException{
 		
 		/**
 		 * Database Metadata gives you info regarding your DB
@@ -54,7 +54,7 @@ public class Examples {
 	
 	//-------------------------------------------------------------
 	
-	static void SchemaInfo() throws SQLException{
+	static void schemaInfo() throws SQLException{
 		
 		String catalog = null;
 		String schemaPattern = null;
@@ -85,7 +85,8 @@ public class Examples {
 			System.out.println("\nlist of tables:");
 			System.out.println("-----------------------");
 			
-			resultSet = databaseMetaData.getTables(catalog, schemaPattern, tableNamePattern, types);
+			//"demo" is name of schema +++++++++++++++++++++
+			resultSet = databaseMetaData.getTables("demo", schemaPattern, tableNamePattern, types);
 			
 			while(resultSet.next()) {
 				System.out.println(resultSet.getString("TABLE_NAME"));
@@ -111,6 +112,13 @@ public class Examples {
 			connection.close(); 
 			//resultSet.close();
 		}
+		
+	}
+	
+	
+	//-------------------------------------------------------------
+	
+	static void somerthing() throws SQLException{
 		
 	}
 	
