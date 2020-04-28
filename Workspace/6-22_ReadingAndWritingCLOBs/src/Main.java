@@ -22,7 +22,8 @@ public class Main {
 		//write CLOB to DB:
 		Examples.writeCLOB();
 		
-		
+		//read CLOB to DB:
+		Examples.readCLOB();
 		
 
 	}
