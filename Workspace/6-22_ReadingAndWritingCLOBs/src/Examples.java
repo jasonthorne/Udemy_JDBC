@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -25,9 +26,28 @@ public class Examples {
 			
 			//---------------------------------------------------
 			//2 - prepare statement:
+			String sql = "UPDATE employees SET resume=? WHERE email='john.doe@foo.com'";
+			preparedStatement =  connection.prepareStatement(sql);
 			
 			
+			//---------------------------------------------------
+			//3 - set parameter for CLOB file name:
 			
+			File file = new File("SampleCLOB.txt");
+			fileReader = new FileReader(file);
+			preparedStatement.setCharacterStream(1, fileReader); //fileReader file set as param at pos 1
+			
+			System.out.println("reading input file: " + file.getAbsolutePath());
+			
+			//---------------------------------------------------
+			//4 - execute statement:
+			
+			System.out.println("Storing CLOB: " + file + " in db: ");
+			System.out.println(sql);
+			
+			preparedStatement.execute(); //execute statement
+			
+
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
