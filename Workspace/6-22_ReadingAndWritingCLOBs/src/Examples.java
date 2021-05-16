@@ -39,7 +39,8 @@ public class Examples {
 			//---------------------------------------------------
 			//3 - set parameter for CLOB file name:
 			
-			File file = new File("SampleCLOB.txt");
+			/////////////File file = new File("SampleCLOB.txt");
+			File file = new File("SampleCLOB.json");
 			fileReader = new FileReader(file);
 			preparedStatement.setCharacterStream(1, fileReader); //fileReader file set as param at pos 1
 			
@@ -93,7 +94,8 @@ public class Examples {
 			//---------------------------------------------------
 			//3 - set up a handle to the file:
 			
-			File file = new File("CLOB_fromDB.txt"); //path to where we want file
+			///////File file = new File("CLOB_fromDB.txt"); //path to where we want file
+			File file = new File("CLOB_fromDB.json"); //path to where we want file
 			fileWriter = new FileWriter(file);
 			
 			if(resultSet.next()) { //if resultSet has result
@@ -109,7 +111,7 @@ public class Examples {
 				}
 				
 			}
-			
+			fileWriter.close();
 			
 		}catch(Exception e) {
 			e.printStackTrace();

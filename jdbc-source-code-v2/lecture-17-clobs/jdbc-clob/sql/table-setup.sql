@@ -1,6 +1,10 @@
+DROP DATABASE IF EXISTS demo;
 create database if not exists demo;
 
 use demo;
+
+/* set time zone: */
+SET GLOBAL time_zone = '+1:00';
 
 drop table if exists employees;
 
